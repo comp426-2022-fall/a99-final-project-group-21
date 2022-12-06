@@ -16,4 +16,3 @@ const args = minimist(process.argv.slice(2),{
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
-
