@@ -1,0 +1,36 @@
+.component1-container {
+  display: flex;
+  position: relative;
+}
+.component1-button {
+  position: relative;
+}
+.component1-root-class-name {
+  top: 562px;
+  left: 556px;
+  position: absolute;
+}
+
+.login-screen-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.login-screen-navlink {
+  display: contents;
+}
+.login-screen-component {
+  text-decoration: none;
+}
+.login-screen-icon {
+  top: 358px;
+  left: 535px;
+  width: 128px;
+  height: 112px;
+  position: absolute;
+  align-self: center;
+}
