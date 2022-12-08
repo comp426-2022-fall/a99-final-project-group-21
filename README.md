@@ -34,7 +34,7 @@ Group 21 will create a tool for users to track daily calories through the availa
 3. David Nam - Release Manager/Backend
 
 ## Future Extensions
-+ Add styling to the workout and user log pages
-+ Ability to customize and sort viewing of workout logs
-+ Ability to add other users as "friends" and view your friends' past workouts
++ Add styling to the userlogin and additon of calories page 
++ Ability to customize and sort viewing of daily calories/food and see it across monthly basis in accordance to goal.
++ Ability to add other users as calorie buddies 
 
