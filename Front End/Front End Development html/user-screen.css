@@ -1,0 +1,30 @@
+.user-screen-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.user-screen-text {
+  top: 124px;
+  left: 515px;
+  position: absolute;
+}
+.user-screen-text3 {
+  top: 242px;
+  left: 473px;
+  position: absolute;
+}
+.user-screen-text6 {
+  top: 286px;
+  left: 475px;
+  position: absolute;
+}
+.user-screen-textinput {
+  top: 327px;
+  left: 461px;
+  height: 32px;
+  position: absolute;
+}
