@@ -1,0 +1,14 @@
+.component4-container {
+  display: flex;
+  position: relative;
+}
+.component4-button {
+  width: 180px;
+  height: 40px;
+  position: relative;
+}
+.component4-root-class-name {
+  top: 473px;
+  left: 495px;
+  position: absolute;
+}

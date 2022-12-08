@@ -27,7 +27,7 @@ Group 21 will create a tool for users to track daily calories through the availa
 + [nodemon - v2.0.20](https://www.npmjs.com/package/nodemon)
 
 ## Video Demo
-
+https://youtu.be/f8MAlEpjSno
 
 ## Project Preview and Planning
 [Documentation](https://github.com/comp426-2022-fall/a99-final-project-group-21/tree/main/Documentation)
