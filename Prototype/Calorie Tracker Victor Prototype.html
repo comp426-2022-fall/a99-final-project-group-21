@@ -1,0 +1,69 @@
+<html>
+<head>
+  <title>Calorie Tracker</title>
+</head>
+<body>
+  <h1>Calorie Tracker</h1>
+  
+  <form>
+    <label for="food">Food:</label><br>
+    <input type="text" id="food" name="food"><br>
+    <label for="calories">Calories:</label><br>
+    <input type="number" id="calories" name="calories"><br><br>
+    <button type="submit">Add Food</button>
+  </form> 
+  
+  <h2>Total Calories: <span id="total_calories">0</span></h2>
+  
+  <script>
+    // define a function that takes in a food item and its corresponding calorie count
+    function add_calories(food, calories) {
+      // create a dictionary to store the food items and their calorie counts
+      calories_consumed = {}
+      
+      // add the food item and its calorie count to the dictionary
+      calories_consumed[food] = calories
+      
+      // return the updated dictionary
+      return calories_consumed
+    }
+
+    // define a function that calculates the total number of calories consumed
+    function calculate_total_calories(calories_consumed) {
+      // initialize a variable to store the total number of calories
+      total_calories = 0
+      
+      // iterate over the items in the calories_consumed dictionary
+      for (food in calories_consumed) {
+        // add the number of calories for each food item to the total
+        total_calories += calories_consumed[food]
+      }
+      
+      // return the total number of calories
+      return total_calories
+    }
+
+    // create a dictionary to store the food items and their calorie counts
+    calories_consumed = {}
+    
+    // get the food and calories inputs
+    var foodInput = document.getElementById("food");
+    var caloriesInput = document.getElementById("calories");
+    
+    // add an event listener to the form submit button
+    document.querySelector("form").addEventListener("submit", function(event) {
+      // prevent the form from being submitted
+      event.preventDefault();
+      
+      // add the food item and its calorie count to the calories_consumed dictionary
+      calories_consumed = add_calories(foodInput.value, parseInt(caloriesInput.value));
+      
+      // calculate the total number of calories consumed
+      var total_calories = calculate_total_calories(calories_consumed);
+      
+      // update the total calories display
+      document.getElementById("total_calories").innerHTML = total_calories;
+    });
+  </script>
+</body>
+</html>
