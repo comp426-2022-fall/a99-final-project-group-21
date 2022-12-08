@@ -48,10 +48,7 @@
         <h1 class="user-screen-text">
           <span>
             Welcome! My name is CALORIE, I was specifically designed by my three
-            wonderful fathers to ensure the highest quality of service! Below,
-            all you need to do is insert the "meal name" and the amount of
-            calories associated with it and I will do all the hard work for
-            you.&nbsp;
+            wonderful fathers to ensure the highest quality of service! 
           </span>
           <br />
         </h1>
@@ -65,59 +62,71 @@
             d="M726 470v-86h-86v86h86zM554 470v-86h-84v86h84zM384 470v-86h-86v86h86zM854 86q34 0 59 25t25 59v512q0 34-25 60t-59 26h-598l-170 170v-768q0-34 25-59t59-25h684z"
           ></path>
         </svg>
-        
-        <p id="daily_calorie_amount">
-          Daily Calorie Amount:
-          <!-- daily calorie amount will be inserted here -->
-        </p>
-      
-        <p>
-          <label for="meal">Meal:</label>
-          <input type="text" id="meal" name="meal">
-          <label for="calories">Calories:</label>
-          <input type="number" id="calories" name="calories">
-        </p>
-      
-        <button id="add_meal">Add Meal</button>
-      
-        <h2>Meal List</h2>
-        <ul id="meal_list"></ul>
-      
-        <script>
-          // determine daily calorie amount
-          let dailyCalorieAmount = 2000;
-      
-          // insert daily calorie amount into page
-          const dailyCalorieAmountElement = document.getElementById("daily_calorie_amount");
-          dailyCalorieAmountElement.textContent += dailyCalorieAmount;
-      
-          // add event listener for add meal button
-          const addMealButton = document.getElementById("add_meal");
-          addMealButton.addEventListener("click", function() {
-            // get meal and calorie inputs
-            const meal = document.getElementById("meal").value;
-            const calories = document.getElementById("calories").value;
-      
-            // create new list item for meal
-            const mealList = document.getElementById("meal_list");
-            const newListItem = document.createElement("li");
-            newListItem.textContent = `${meal}: ${calories} calories`;
-            mealList.appendChild(newListItem);
-      
-            // subtract calories from daily amount
-            dailyCalorieAmount -= calories;
-      
-            // update daily calorie amount on page
-            dailyCalorieAmountElement.textContent = `Daily Calorie Amount: ${dailyCalorieAmount}`;
-      
-            // check if daily amount is 0
-            if (dailyCalorieAmount === 0) {
-              alert("Congratulations! You have reached your goal. See You Tomorrow");
-            }
-          });
-        </script>
+        <!DOCTYPE html>
+<html>
+  <head>
+    <title>Calorie Tracker</title>
+  </head>
+  <body>
+    <h1>Calorie Tracker</h1>
+    <p>Remaining Daily calorie amount: <span id="daily-calorie-amount">2000</span></p>
 
-      </div>
-    </div>
+    <h2>Meal List</h2>
+    <ul id="meal-list"></ul>
+
+    
+    <form id="add-meal-form">
+      <label for="meal-name-input">Meal name:</label>
+      <input type="text" id="meal-name-input" />
+      <label for="meal-type-select">Meal type:</label>
+      <select id="meal-type-select">
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+      </select>
+      <label for="meal-calories-input">Calories:</label>
+      <input type="number" id="meal-calories-input" />
+      <button type="submit">Add meal</button>
+    </form>
+
+    <p id="congrats-message"></p>
+
+    <script>
+      // Get references to DOM elements
+      const dailyCalorieAmountEl = document.getElementById('daily-calorie-amount');
+      const mealListEl = document.getElementById('meal-list');
+      const addMealFormEl = document.getElementById('add-meal-form');
+      const congratsMessageEl = document.getElementById('congrats-message');
+
+      // Set up event listener for form submission
+      addMealFormEl.addEventListener('submit', (event) => {
+        event.preventDefault(); // prevent form from refreshing page
+
+        // Get values from form inputs
+        const mealName = document.getElementById('meal-name-input').value;
+        const mealType = document.getElementById('meal-type-select').value;
+        const mealCalories = document.getElementById('meal-calories-input').value;
+
+        // Create a new list item with the meal name, type, and calories
+        const newListItemEl = document.createElement('li');
+        newListItemEl.innerHTML = `${mealName} (${mealType}): ${mealCalories} calories`;
+
+        // Add the new list item to the meal list
+        mealListEl.appendChild(newListItemEl);
+
+        // Subtract the calories from the daily calorie amount
+        dailyCalorieAmountEl.innerHTML =
+          parseInt(dailyCalorieAmountEl.innerHTML) - parseInt(mealCalories);
+
+        // If the daily calorie amount is zero, show the congrats message
+        if (dailyCalorieAmount === 0) {
+        alert("Congratulations! You have reached your goal. See you tommororw");
+      }
+      });
+    </script>
+  </body>
+</html>
+
+
   </body>
 </html>

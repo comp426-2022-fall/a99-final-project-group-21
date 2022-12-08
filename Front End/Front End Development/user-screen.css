@@ -9,7 +9,7 @@
   background-image: linear-gradient(90deg, rgb(241, 242, 181) 0.00%,rgb(238, 72, 191) 100.00%);
 }
 .user-screen-text {
-  top: 12px;
+  top: 5px;
   color: rgb(255, 255, 255);
   right: -11px;
   width: 656px;
@@ -17,12 +17,12 @@
   position: absolute;
 }
 .user-screen-image {
-  top: 24px;
-  left: 200px;
+  top: 12px;
+  left: 264px;
   width: 212px;
-  height: 323px;
+  height: 250px;
   position: absolute;
-  object-fit: cover;
+  object-fit: behind;
 }
 .user-screen-icon {
   top: 15px;
