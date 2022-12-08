@@ -33,7 +33,7 @@ import path from 'path';
 const __dirname = path.resolve();
 
 // app.engine('handlebars', engine());
-app.set('view engine', 'ejs');
+app.set('view engine', 'js');
 app.set('views', path.join(__dirname, '..', 'views'));
 
  app.use(express.urlencoded({extended:true}))
@@ -53,7 +53,7 @@ const args = minimist(process.argv.slice(2),{
 //         console.log("server listening on port: ", port);
 //     }
 // });
-
+app.use(express.static(path.join(__dirname, '..', 'views')));
 
 app.get('/', async (req, res) => {
 	const db = await dbPromise;
@@ -66,31 +66,77 @@ app.get('/', async (req, res) => {
 	res.render('home', {messages})
 })
 
-app.get("/register", async (req, res) => {
-	res.render("register");
+app.get("/login-screen", async (req, res) => {
+	res.render("login-screen");
   });
 
-  app.post("/register", async (req, res) => {
+  app.post("/login-screen", async (req, res) => {
 	const db = await dbPromise;
-	const { username, password, passwordRepeat } = req.body;
-	if (password !== passwordRepeat) {
-	  res.render("register", { error: "Passwords must match" });
-	  return;
-	}
+	const { username, password} = req.body;
+// need to check if username and password match
+	// if (password !== passwordRepeat) {
+	//   res.render("register", { error: "Passwords must match" });
+	//   return;
+	// }
 	const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
 	await db.run(
 	  "INSERT INTO User (username, password) VALUES (?, ?)",
 	  username,
 	  passwordHash
 	);
-	res.redirect("/");
+	const checklogin = db.prepare(`SELECT * FROM users WHERE user='${username}' and password= '${password}';`);
+    let row = checklogin.get();
+    if (row === undefined) {
+        req.app.set('username', username);
+        req.app.set('password', password);
+    } else {
+        req.app.set('username', username);
+        req.app.set('password', password);
+        res.redirect('/login-screen');
+    }
+	res.redirect("/user-screen");
   });  
 
-app.post('/message', async (req, res) => {
-	const db = await dbPromise
-	const messageText = req.body.messageText
-	await db.run('INSERT INTO Message (text) VALUES (?);', messageText)
-	res.redirect('/')
+  app.get('/user-creation-screen', async (req, res) => {
+	const db = await dbPromise;
+	res.render('user-creation-screen')
+})
+
+  app.post("/user-creation-screen", async (req, res) => {
+	const db = await dbPromise;
+	const { username, password} = req.body;
+	//need to check if username already exist
+	// if (password !== passwordRepeat) {
+	//   res.render("register", { error: "Passwords must match" });
+	//   return;
+	// }
+	const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
+	const stmt1 = db.prepare(`SELECT * FROM users WHERE user='${user}'`);
+    let row = stmt1.get();
+	if (row === undefined) {
+	await db.run(
+	  "INSERT INTO User (username, password) VALUES (?, ?)",
+	  username,
+	  passwordHash
+	);
+	db.exec()
+	res.render('user-screen');
+	}        
+     else {
+        res.render('user-creation-screen')
+    }
+  });  
+
+// app.post('/message', async (req, res) => {
+// 	const db = await dbPromise
+// 	const messageText = req.body.messageText
+// 	await db.run('INSERT INTO Message (text) VALUES (?);', messageText)
+// 	res.redirect('/')
+// })
+
+app.get('/user-screen', async (req, res) => {
+	const db = await dbPromise;
+	res.render('user-screen')
 })
 
 app.get("*", (req, res) => {
