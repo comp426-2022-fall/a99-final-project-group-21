@@ -18,11 +18,6 @@ const app = express();
 const pathresolve = path.resolve();
 
 
-// const args = minimist(process.argv.slice(2),{
-// 	default: {
-// 		port: 8000
-// 	},
-// });
 
 const dbPromise = open({
 	filename : 'data.db',
@@ -41,9 +36,29 @@ const __dirname = path.resolve();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '..', 'views'));
 
-// app.set('views', path.join(pathresolve, '..', 'views'));
  app.use(express.urlencoded({extended:true}))
 
+
+ app.use(express.static(path.join(__dirname, '..', 'views')));
+
+const args = minimist(process.argv.slice(2),{
+	default: {
+		port: 8000
+	},
+});
+
+// app.listen(port, function(err) {
+//     if(err) { 
+//         console.log(err);
+//         console.log("server listening on port: ", port);
+//     }
+// });
+
+
+app.get('/', async (req, res) => {
+	const db = await dbPromise;
+	res.render('index');
+})
 
 app.get('/', async (req, res) => {
 	const db = await dbPromise;
