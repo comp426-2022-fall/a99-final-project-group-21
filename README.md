@@ -5,7 +5,7 @@
 ### Final Project For Group 21
 
 ## Summary 
-Group 21 will create a tool for users to track daily calories through the availablity of inputing of calories within the interface. Upon the user creating an account, the calorie tracker will ask for current weight then goal weight and will create a algorithmic estimate of caloric range. The user is able to check with this number and input meals eaten to see if it is matching said number.
+Group 21 will create a tool for users to track daily calories through the availablity of inputing of calories within the interface. Upon the user creating an account, the calorie tracker will ask for current weight then goal weight and will create a algorithmic estimate of caloric range. The user is able to check with this number and input meals eaten for breakfast, lunch, dinner and then amount of calories per meal. User can log out and log back in to see inputed meals in the interface. See video for this!
 
 *Disclaimer: This tool will not take into account macros as the group has no background in nutrition and would like to provide a simple interface for recommended caloric intake with ability to track.
 
