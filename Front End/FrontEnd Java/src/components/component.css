@@ -1,0 +1,24 @@
+.component-container {
+  display: flex;
+  position: relative;
+}
+.component-button {
+  height: 0px;
+  position: relative;
+  font-size: 10px;
+  font-family: Fira Sans;
+  line-height: 0.1;
+  text-transform: capitalize;
+}
+.component-root-class-name {
+  left: 91px;
+  width: auto;
+  bottom: 17px;
+  position: absolute;
+}
+.component-root-class-name1 {
+  left: 91px;
+  width: auto;
+  bottom: 0px;
+  position: absolute;
+}

@@ -1,0 +1,65 @@
+.user-screen-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-image: linear-gradient(90deg, rgb(241, 242, 181) 0.00%,rgb(238, 72, 191) 100.00%);
+}
+.user-screen-text {
+  top: 12px;
+  color: rgb(255, 255, 255);
+  right: -11px;
+  width: 656px;
+  height: 243px;
+  position: absolute;
+}
+.user-screen-image {
+  top: 24px;
+  left: 264px;
+  width: 212px;
+  height: 323px;
+  position: absolute;
+  object-fit: cover;
+}
+.user-screen-icon {
+  top: 15px;
+  fill: #ffffff;
+  left: 409px;
+  width: 185px;
+  height: 90px;
+  position: absolute;
+}
+.user-screen-text3 {
+  top: 397px;
+  left: 562px;
+  position: absolute;
+}
+.user-screen-text4 {
+  top: 335px;
+  left: 561px;
+  position: absolute;
+}
+.user-screen-text5 {
+  top: 397px;
+  left: 562px;
+  position: absolute;
+}
+.user-screen-text6 {
+  top: 455px;
+  left: 564px;
+  width: 177px;
+  position: absolute;
+}
+.user-screen-textinput {
+  top: 337px;
+  left: 743px;
+  position: absolute;
+}
+.user-screen-textinput1 {
+  top: 398px;
+  left: 709px;
+  position: absolute;
+}

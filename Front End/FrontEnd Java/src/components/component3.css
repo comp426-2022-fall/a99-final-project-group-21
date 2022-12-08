@@ -1,0 +1,36 @@
+.component3-container {
+  width: 238.93333435058594px;
+  height: 356.3333282470703px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.component3-image {
+  top: 42px;
+  left: 62px;
+  width: 115px;
+  height: 114px;
+  position: absolute;
+  object-fit: cover;
+}
+.component3-icon {
+  left: 57px;
+  width: 128px;
+  bottom: 5.3333282470703125px;
+  height: 112px;
+  position: absolute;
+  align-self: center;
+}
+.component3-navlink {
+  display: contents;
+}
+.component3-component {
+  text-decoration: none;
+}
+.component3-text {
+  top: 0px;
+  left: 0px;
+  position: absolute;
+}
