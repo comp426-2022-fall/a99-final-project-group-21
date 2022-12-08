@@ -33,7 +33,7 @@ Group 21 will create a tool for users to track daily calories through the availa
 [Documentation](https://github.com/comp426-2022-fall/a99-final-project-group-21/tree/main/Documentation)
 
 ### Homepage 
-<img width="367" alt="Home page" src="https://user-images.githubusercontent.com/69809296/206356341-e22aba48-6b27-4fcc-9f2e-9f753f7e8a9d.png">
+![image](https://user-images.githubusercontent.com/69809296/206363143-62ac9b74-05ce-4769-94ae-dbf31da052d5.png)
 
 ### Login-Screen
 <img width="476" alt="login page" src="https://user-images.githubusercontent.com/69809296/206360239-69bc7b47-1a8a-4baa-87de-e6710112bbc3.png">
