@@ -41,6 +41,9 @@ Group 21 will create a tool for users to track daily calories through the availa
 ### User-Creation-Screen
 <img width="247" alt="Upload" src="https://user-images.githubusercontent.com/69809296/206363613-c9fce1a5-de5e-4dc6-836e-dcba7ae31398.png">
 
+### User-Screen
+<img width="833" alt="upload" src="https://user-images.githubusercontent.com/69809296/206380738-80a775ea-31ad-467a-af68-ba147563c3d1.png">
+
 
 
 
