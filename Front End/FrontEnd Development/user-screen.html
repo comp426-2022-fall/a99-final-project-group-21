@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Login-Screen - Hollow Major Giraffe</title>
-    <meta property="og:title" content="Login-Screen - Hollow Major Giraffe" />
+    <title>User-Screen - Hollow Major Giraffe</title>
+    <meta property="og:title" content="User-Screen - Hollow Major Giraffe" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
@@ -35,11 +35,6 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
       data-tag="font"
     />
@@ -47,26 +42,26 @@
   </head>
   <body>
     <div>
-      <link href="./login-screen.css" rel="stylesheet" />
+      <link href="./user-screen.css" rel="stylesheet" />
 
-      <div class="login-screen-container">
-        <input type="text" placeholder="Username" class="input" />
-        <input type="text" placeholder="Password" class="input" />
-        <a href="user-screen.html" class="login-screen-navlink">
-          <div class="component1-container component1-root-class-name">
-            <button class="component1-button button">
-              <span>
-                <span>Login</span>
-                <br />
-              </span>
-            </button>
-          </div>
-        </a>
-        <svg viewBox="0 0 658.2857142857142 1024" class="login-screen-icon">
-          <path
-            d="M182.857 438.857h292.571v-109.714c0-80.571-65.714-146.286-146.286-146.286s-146.286 65.714-146.286 146.286v109.714zM658.286 493.714v329.143c0 30.286-24.571 54.857-54.857 54.857h-548.571c-30.286 0-54.857-24.571-54.857-54.857v-329.143c0-30.286 24.571-54.857 54.857-54.857h18.286v-109.714c0-140.571 115.429-256 256-256s256 115.429 256 256v109.714h18.286c30.286 0 54.857 24.571 54.857 54.857z"
-          ></path>
-        </svg>
+      <div class="user-screen-container">
+        <h1 class="user-screen-text">
+          <span>Welcome!</span>
+          <br />
+        </h1>
+        <span class="user-screen-text3">
+          <span>Remaining Calories:</span>
+          <br />
+        </span>
+        <span class="user-screen-text6">
+          <span>Input Calories:</span>
+          <br />
+        </span>
+        <input
+          type="text"
+          placeholder="Input calories"
+          class="user-screen-textinput input"
+        />
       </div>
     </div>
   </body>

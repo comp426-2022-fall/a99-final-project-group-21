@@ -11,48 +11,51 @@
   text-transform: capitalize;
 }
 .app-component-root-class-name {
-  top: 346px;
-  left: 572px;
+  left: 91px;
   width: auto;
+  bottom: 17px;
+  position: absolute;
+}
+.app-component-root-class-name1 {
+  left: 91px;
+  width: auto;
+  bottom: 0px;
   position: absolute;
 }
 
-.home-container {
-  width: 100%;
+.component3-container {
+  width: 238.93333435058594px;
+  height: 356.3333282470703px;
   display: flex;
-  overflow: auto;
-  min-height: 100vh;
+  position: relative;
   align-items: center;
-  border-color: rgba(0, 0, 0, 0);
-  border-style: dotted;
-  border-width: 1px;
   flex-direction: column;
   justify-content: flex-start;
 }
-.home-image {
-  top: 49px;
-  left: 543px;
+.component3-image {
+  top: 42px;
+  left: 62px;
   width: 115px;
   height: 114px;
   position: absolute;
   object-fit: cover;
 }
-.home-icon {
-  top: 246px;
-  left: 538px;
+.component3-icon {
+  left: 57px;
   width: 128px;
+  bottom: 5.3333282470703125px;
   height: 112px;
   position: absolute;
   align-self: center;
 }
-.home-navlink {
+.component3-navlink {
   display: contents;
 }
-.home-component {
+.component3-component {
   text-decoration: none;
 }
-.home-text {
-  top: 7px;
-  left: 481px;
+.component3-text {
+  top: 0px;
+  left: 0px;
   position: absolute;
 }
