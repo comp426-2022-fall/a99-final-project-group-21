@@ -1,0 +1,72 @@
+<html>
+<head>
+  <title>Calorie Tracker</title>
+</head>
+<body>
+  <h1>Calorie Tracker</h1>
+  
+  <!-- create a form to allow users to input their meals and calories eaten -->
+  <form>
+    <label for="meal">Meal:</label><br>
+    <input type="text" id="meal" name="meal"><br>
+    <label for="calories">Calories:</label><br>
+    <input type="number" id="calories" name="calories"><br><br>
+    <input type="submit" value="Add Meal">
+  </form>
+  
+  <!-- create a table to display the meals and their calorie counts -->
+  <table>
+    <tr>
+      <th>Meal</th>
+      <th>Calories</th>
+    </tr>
+  </table>
+  
+  <!-- create a paragraph to display the remaining daily calorie value -->
+  <p>Remaining daily calorie value: <span id="remaining_calories">2000</span></p>
+  
+  <!-- create a paragraph to display a message when the daily calorie value reaches 0 -->
+  <p id="finished_message">All finished for today!</p>
+  
+  <!-- add a script to handle the form submission and update the table and daily calorie value -->
+  <script>
+    // get a reference to the form and table
+    const form = document.querySelector("form");
+    const table = document.querySelector("table");
+    
+    // create a variable to store the remaining daily calorie value
+    let remainingCalories = 2000;
+    
+    // add an event listener to handle the form submission
+    form.addEventListener("submit", (event) => {
+      // prevent the default form submission
+      event.preventDefault();
+      
+      // get the values of the meal and calories inputs
+      const meal = document.querySelector("#meal").value;
+      const calories = document.querySelector("#calories").value;
+      
+      // update the remaining daily calorie value
+      remainingCalories -= calories;
+      
+      // update the table with the meal and calories
+      const row = document.createElement("tr");
+      const mealCell = document.createElement("td");
+      mealCell.textContent = meal;
+      const caloriesCell = document.createElement("td");
+      caloriesCell.textContent = calories;
+      row.appendChild(mealCell);
+      row.appendChild(caloriesCell);
+      table.appendChild(row);
+      
+      // update the remaining daily calorie value in the paragraph
+      document.querySelector("#remaining_calories").textContent = remainingCalories;
+      
+      // display the finished message if the remaining daily calorie value is 0
+      if (remainingCalories === 0) {
+        document.querySelector("#finished_message").style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>
