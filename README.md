@@ -40,9 +40,9 @@ Group 21 will create a tool for users to track daily calories through the availa
 
 ## Team Roles
 
-1. Victor Ariton - Documentation Manager/Frontend 
-2. Ryan Nguyen - Review Manager
-3. David Nam - Release Manager/Backend
+1. Victor Ariton - Documentation Manager/Frontend lead
+2. Ryan Nguyen - Review Manager/ Design lead
+3. David Nam - Release Manager/Backend lead
 
 ## Future Extensions
 + Add styling to the userlogin and additon of calories page 
