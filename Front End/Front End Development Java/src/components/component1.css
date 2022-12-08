@@ -1,0 +1,12 @@
+.component1-container {
+  display: flex;
+  position: relative;
+}
+.component1-button {
+  position: relative;
+}
+.component1-root-class-name {
+  top: 562px;
+  left: 556px;
+  position: absolute;
+}
