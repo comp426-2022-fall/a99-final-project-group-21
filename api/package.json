@@ -1,15 +1,20 @@
 {
  "name": "api",
-  "version": "1.0.0",
-  "description": "API that tracks calorie intake and gives a calorie range",
-  "main": "server.js",
-  "scripts": {
-    "test": "node server.js"
-  },
-  "author": "group-21",
-  "license": "GPL-3.0-Later",
-  "dependencies": {
-    "express": "^4.18.2",
-    "minimist": "^1.2.7"
-  }
+ "version": "1.0.0",
+ "description": "API that tracks calorie intake and gives a calorie range",
+ "main": "server.cjs",
+ "scripts": {
+  "test": "node server.js --port=5000",
+  "start": "node server.js"
+ },
+ "type": "module",
+ "author": "group-21",
+ "license": "GPL-3.0-Later",
+ "dependencies": {
+  "all": "^0.0.0",
+  "better-sqlite3": "^8.0.1",
+  "express": "^4.18.2",
+  "minimist": "^1.2.7",
+  "sqlite3": "^5.1.2"
+ }
 }
