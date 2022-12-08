@@ -1,65 +1,94 @@
-#!/usr/bin/env node
-
+//#!/usr/bin/env node
 import minimist from "minimist"
-import express from "express"
+import {engine} from 'express-handlebars'
+import express, {response} from "express"
+//import exphbs from "express-handlebars"
 import bodyParser from 'body-parser'
 import path from 'path'
 import sqlite3 from 'sqlite3'
+import bcrypt from "bcrypt"
+// import sqlite from 'sqlite'
 import { fileURLToPath } from 'url'
+import { open } from 'sqlite'
+
+const SALT_ROUNDS = 10;
 
 
-
-// This is where our server will be 
 const app = express();
-const sqlite3_verbose = sqlite3.verbose();
-const args = minimist(process.argv.slice(2),{
-	default: {
-		port: 5000
-	},
-});
-
-app.use(express.urlencoded({extended:true}));
-app.use(express.json());
+const pathresolve = path.resolve();
 
 
+// const args = minimist(process.argv.slice(2),{
+// 	default: {
+// 		port: 8000
+// 	},
+// });
 
-//const sqlite3 = require('sqlite3').verbose();
-// This is our database
-let db = new sqlite3_verbose.Database('./group21.db', sqlite3.OPEN_READWRITE, (err) => {
-	if (err) {
-		return console.error(err.message);
-	}
-	console.log('Connected to the group21 SQlite database.')
-});
+const dbPromise = open({
+	filename : 'data.db',
+	driver: sqlite3.Database
+})
 
-// db.run('CREATE TABLE group21up(username text, password text)');
+//const db = require("./api/db/sqlapi");
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+import path from 'path';
+const __dirname = path.resolve();
+
+// app.engine('handlebars', engine());
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '..', 'views'));
+
+// app.set('views', path.join(pathresolve, '..', 'views'));
+ app.use(express.urlencoded({extended:true}))
 
 
-db.run(`INSERT INTO group21up(username text, password text) VALUES(?)`, ['username'], ['password'], function(err) {
-    if (err) {
-      return console.log(err.message);
-    }
-    // get the last insert id
-    console.log(`A row has been inserted with rowid ${this.lastID}`);
+app.get('/', async (req, res) => {
+	const db = await dbPromise;
+	const messages = await db.all('SELECT * FROM Message;')
+	res.render('home', {messages})
+})
+
+app.get("/register", async (req, res) => {
+	res.render("register");
   });
 
-
-// db.serialize(() => {
-// 	app.use(bodyParser.urlencoded({ extended: true }));
-// 	db.each(`SELECT username as id,
-// 					password as password
-// 			 FROM USERS`, (err, row) => {
-// 	  if (err) {
-// 		console.error(err.message);
-// 	  }
-// 	  console.log(row.id + "\t" + row.name);
-// 	});
-//   });
-
-
-db.close((err) => {
-	if (err) {
-		return console.error(err.message);
+  app.post("/register", async (req, res) => {
+	const db = await dbPromise;
+	const { username, password, passwordRepeat } = req.body;
+	if (password !== passwordRepeat) {
+	  res.render("register", { error: "Passwords must match" });
+	  return;
 	}
-	console.log('Close the database')
+	const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
+	await db.run(
+	  "INSERT INTO User (username, password) VALUES (?, ?)",
+	  username,
+	  passwordHash
+	);
+	res.redirect("/");
+  });  
+
+app.post('/message', async (req, res) => {
+	const db = await dbPromise
+	const messageText = req.body.messageText
+	await db.run('INSERT INTO Message (text) VALUES (?);', messageText)
+	res.redirect('/')
 })
+
+app.get("*", (req, res) => {
+    res.status(404).send("404 NOT FOUND");
+});
+
+const setup = async () => {
+	const db = await dbPromise
+	await db.migrate()
+	app.listen(8000, () => {
+		console.log('listening at http://localhost:8000')
+	})
+}
+setup()
+
+
