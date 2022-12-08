@@ -46,22 +46,77 @@
 
       <div class="user-screen-container">
         <h1 class="user-screen-text">
-          <span>Welcome!</span>
+          <span>
+            Welcome! My name is CALORIE, I was specifically designed by my three
+            wonderful fathers to ensure the highest quality of service! Below,
+            all you need to do is insert the "meal name" and the amount of
+            calories associated with it and I will do all the hard work for
+            you.&nbsp;
+          </span>
           <br />
         </h1>
-        <span class="user-screen-text3">
-          <span>Remaining Calories:</span>
-          <br />
-        </span>
-        <span class="user-screen-text6">
-          <span>Input Calories:</span>
-          <br />
-        </span>
-        <input
-          type="text"
-          placeholder="Input calories"
-          class="user-screen-textinput input"
+        <img
+          src="public/playground_assets/screen%20shot%202022-12-08%20at%2012.09.57%20am-300w.png"
+          alt="image"
+          class="user-screen-image"
         />
+        <svg viewBox="0 0 1024 1024" class="user-screen-icon">
+          <path
+            d="M726 470v-86h-86v86h86zM554 470v-86h-84v86h84zM384 470v-86h-86v86h86zM854 86q34 0 59 25t25 59v512q0 34-25 60t-59 26h-598l-170 170v-768q0-34 25-59t59-25h684z"
+          ></path>
+        </svg>
+        
+        <p id="daily_calorie_amount">
+          Daily Calorie Amount:
+          <!-- daily calorie amount will be inserted here -->
+        </p>
+      
+        <p>
+          <label for="meal">Meal:</label>
+          <input type="text" id="meal" name="meal">
+          <label for="calories">Calories:</label>
+          <input type="number" id="calories" name="calories">
+        </p>
+      
+        <button id="add_meal">Add Meal</button>
+      
+        <h2>Meal List</h2>
+        <ul id="meal_list"></ul>
+      
+        <script>
+          // determine daily calorie amount
+          let dailyCalorieAmount = 2000;
+      
+          // insert daily calorie amount into page
+          const dailyCalorieAmountElement = document.getElementById("daily_calorie_amount");
+          dailyCalorieAmountElement.textContent += dailyCalorieAmount;
+      
+          // add event listener for add meal button
+          const addMealButton = document.getElementById("add_meal");
+          addMealButton.addEventListener("click", function() {
+            // get meal and calorie inputs
+            const meal = document.getElementById("meal").value;
+            const calories = document.getElementById("calories").value;
+      
+            // create new list item for meal
+            const mealList = document.getElementById("meal_list");
+            const newListItem = document.createElement("li");
+            newListItem.textContent = `${meal}: ${calories} calories`;
+            mealList.appendChild(newListItem);
+      
+            // subtract calories from daily amount
+            dailyCalorieAmount -= calories;
+      
+            // update daily calorie amount on page
+            dailyCalorieAmountElement.textContent = `Daily Calorie Amount: ${dailyCalorieAmount}`;
+      
+            // check if daily amount is 0
+            if (dailyCalorieAmount === 0) {
+              alert("Congratulations! You have reached your goal. See You Tomorrow");
+            }
+          });
+        </script>
+
       </div>
     </div>
   </body>
