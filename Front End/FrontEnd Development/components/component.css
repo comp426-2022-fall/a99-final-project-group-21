@@ -11,8 +11,14 @@
   text-transform: capitalize;
 }
 .component-root-class-name {
-  top: 346px;
-  left: 572px;
+  left: 91px;
   width: auto;
+  bottom: 17px;
+  position: absolute;
+}
+.component-root-class-name1 {
+  left: 91px;
+  width: auto;
+  bottom: 0px;
   position: absolute;
 }
