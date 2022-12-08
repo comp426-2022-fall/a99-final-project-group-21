@@ -1,6 +1,6 @@
 # a99 Final Project 
  
-## Calorie Tracker
+## Calorie Catcher
 
 ### Final Project For Group 21
 
@@ -37,6 +37,9 @@ Group 21 will create a tool for users to track daily calories through the availa
 
 ### Login-Screen
 <img width="476" alt="login page" src="https://user-images.githubusercontent.com/69809296/206360239-69bc7b47-1a8a-4baa-87de-e6710112bbc3.png">
+
+### User-Creation-Screen
+<img width="247" alt="Upload" src="https://user-images.githubusercontent.com/69809296/206363613-c9fce1a5-de5e-4dc6-836e-dcba7ae31398.png">
 
 
 
