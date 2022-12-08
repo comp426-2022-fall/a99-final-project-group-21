@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calorie Tracker</title>
+</head>
+<body>
+  <h1>Calorie Tracker</h1>
+
+  <p>
+    <label for="current_weight">Current Weight (in pounds):</label>
+    <input type="number" id="current_weight" name="current_weight">
+  </p>
+  <p>
+    <label for="goal_weight">Goal Weight (in pounds):</label>
+    <input type="number" id="goal_weight" name="goal_weight">
+  </p>
+  <p id="daily_calorie_amount">
+    Daily Calorie Amount:
+    <!-- daily calorie amount will be inserted here -->
+  </p>
+
+  <p>
+    <label for="meal">Meal:</label>
+    <input type="text" id="meal" name="meal">
+    <label for="calories">Calories:</label>
+    <input type="number" id="calories" name="calories">
+  </p>
+
+  <button id="add_meal">Add Meal</button>
+
+  <h2>Meal List</h2>
+  <ul id="meal_list"></ul>
+
+  <script>
+    // determine daily calorie amount
+    const currentWeight = document.getElementById("current_weight").value;
+    const goalWeight = document.getElementById("goal_weight").value;
+    let dailyCalorieAmount;
+    if (goalWeight > currentWeight) {
+      dailyCalorieAmount = 2000;
+    } else {
+      dailyCalorieAmount = 2000;
+    }
+
+    // insert daily calorie amount into page
+    const dailyCalorieAmountElement = document.getElementById("daily_calorie_amount");
+    dailyCalorieAmountElement.textContent += dailyCalorieAmount;
+
+    // add event listener for add meal button
+    const addMealButton = document.getElementById("add_meal");
+    addMealButton.addEventListener("click", function() {
+      // get meal and calorie inputs
+      const meal = document.getElementById("meal").value;
+      const calories = document.getElementById("calories").value;
+
+      // create new list item for meal
+      const mealList = document.getElementById("meal_list");
+      const newListItem = document.createElement("li");
+      newListItem.textContent = `${meal}: ${calories} calories`;
+      mealList.appendChild(newListItem);
+
+      // subtract calories from daily amount
+      dailyCalorieAmount -= calories;
+
+      // update daily calorie amount on page
+      dailyCalorieAmountElement.textContent = `Daily Calorie Amount: ${dailyCalorieAmount}`;
+
+      // check if daily amount is 0
+      if (dailyCalorieAmount === 0) {
+        alert("Congratulations! You have reached your goal.");
+      }
+    });
+  </script>
+</body>
+</html>
