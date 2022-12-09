@@ -14,14 +14,15 @@ Group 21 will create a tool for users to track daily calories through the availa
 ## Dependencies
 + [Express.js - v4.18.2](https://expressjs.com/)
 + [EJS - v3.1.8](https://ejs.co/)
-+ [better-sqlite3 - v8.0.1](https://www.npmjs.com/package/better-sqlite3)
++ [sqlite3 - v5.1.2](https://www.npmjs.com/package/sqlite3)
 + [nodemon - v2.0.20](https://www.npmjs.com/package/nodemon)
++ [minimist - v.1.2.7] (https://www.npmjs.com/package/minimist)
 
 ## Video Demo
 https://youtu.be/f8MAlEpjSno
 
 ## Project Preview and Planning
-[Documentation](https://github.com/comp426-2022-fall/a99-final-project-group-21/tree/main/Documentation)
++ [Documentation]([https://github.com/comp426-2022-fall/a99-final-project-group-21/docs/Project Planning/)](https://github.com/comp426-2022-fall/a99-final-project-group-21/tree/main/docs))
 
 ### Homepage 
 ![image](https://user-images.githubusercontent.com/69809296/206363143-62ac9b74-05ce-4769-94ae-dbf31da052d5.png)
