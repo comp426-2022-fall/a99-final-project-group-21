@@ -1,0 +1,47 @@
+                            API Documentation 
+The API used for Calorie Tracker stores the username and password of users so that they may be able to log in and track heir data.
+
+
+1. app.get('/') 
+
+This is the initial home page after clicking on the localhost. This opens up the index.ejs file
+
+2. app.get("/login-screen")
+
+This opens up the login-screen after clicking on the login button in index.ejs
+
+3. app.post("/login-screen")
+
+The api for this checks if the username and password are correct. There are also 2 buttons. One for log in while the other is for creating a new user. Each one leads to a new page.
+
+4. app.get('/user-creation-screen')
+
+This api puts the initial screen for user-creation-screen.ejs.
+
+
+5. app.post("/user-creation-screen")
+
+This api adds an username and password entry into the database. It also internally stores the weight values and checks if it is less than or equal to each other.
+
+6.  app.get('/index')
+
+This api gets the initial index.ejs screen after getting rerouted to it.
+
+7. app.get('/user-screen')
+
+This api gets the final user-screen after getting logged in.
+
+8. app.post('/user-screen')
+
+This api allows the home button near the bottom to renavigate to the index.ejs home screen.
+
+9. app.get("*")
+
+This api checks if the website directory is valid or not. If it is not valid it will throw out an 404 Not Found.
+
+10. app.listen(port) 
+
+This api binds and listens to the connection to the host.
+
+
+
