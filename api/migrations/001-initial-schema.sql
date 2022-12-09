@@ -14,4 +14,4 @@ CREATE TABLE User (
 
 -- Down
 -- DROP TABLE Message;
-DROP TABLE User;
+-- DROP TABLE User;
