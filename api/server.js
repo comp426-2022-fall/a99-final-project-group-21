@@ -34,7 +34,7 @@ app.set('views', path.join(__dirname, '..', 'views'));
  app.use(express.static(path.join(__dirname, '..', 'views')));
 
 const args = minimist(process.argv.slice(2));
-var port = 5555;
+var port = 5000;
 if (args.port) {
 	port = args.port;
 }
@@ -115,12 +115,17 @@ app.get("/login-screen", async (req, res) => {
   });  
   app.get('/index', async (req, res) => {
 	// const db = await dbPromise;
-	res.render('login-screen')
+	res.render('index')
 })
 
 app.get('/user-screen', async (req, res) => {
 	// const db = await dbPromise;
 	res.render('user-screen')
+})
+
+app.post('/user-screen', async (req, res) => {
+	const db = await dbPromise;
+	res.render('index')
 })
 
 app.get("*", (req, res) => {
