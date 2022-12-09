@@ -57,28 +57,36 @@
           class="user-creation-screen-input input"
         />
         <h1 class="user-creation-screen-text3">Enter the information below:</h1>
-        <a href="login-screen.html" class="user-creation-screen-navlink">
+        <form action = "/user-creation-screen" method = "post" class="user-creation-screen-navlink">
           <div class="component5-container component5-root-class-name">
             <button class="component5-button button">
               <span>Create</span>
             </button>
           </div>
-        </a>
+        <!-- </form> -->
         <input
           type="text"
           placeholder="goal weight"
           class="user-creation-screen-textinput input"
         />
+        <!-- <form action = "/user-creation-screen" method = "post"> -->
+        <!-- <label for ="username-field">username</label> -->
         <input
           type="text"
-          placeholder="Username"
+          id = "username-field"
+          name = "username"
+          placeholder="username"
           class="user-creation-screen-textinput1 input"
         />
+        <!-- <label for ="password-field">password</label> -->
         <input
           type="text"
-          placeholder="Password"
+          id = "password-field"
+          name = "password"
+          placeholder="password"
           class="user-creation-screen-textinput2 input"
         />
+      </form>
         <img
           src="public/playground_assets/screen%20shot%202022-12-08%20at%2012.09.57%20am-200w.png"
           alt="image"

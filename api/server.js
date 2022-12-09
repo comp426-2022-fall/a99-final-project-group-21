@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 const __dirname = path.resolve();
 
 // app.engine('handlebars', engine());
-app.set('view engine', 'js');
+app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '..', 'views'));
 
  app.use(express.urlencoded({extended:true}))
@@ -43,7 +43,7 @@ app.set('views', path.join(__dirname, '..', 'views'));
 
 const args = minimist(process.argv.slice(2),{
 	default: {
-		port: 8000
+		port: 5555
 	},
 });
 
@@ -60,11 +60,11 @@ app.get('/', async (req, res) => {
 	res.render('index');
 })
 
-app.get('/', async (req, res) => {
-	const db = await dbPromise;
-	const messages = await db.all('SELECT * FROM Message;')
-	res.render('home', {messages})
-})
+// app.get('/', async (req, res) => {
+// 	const db = await dbPromise;
+// 	const messages = await db.all('SELECT * FROM Message;')
+// 	res.render('home', {messages})
+// })
 
 app.get("/login-screen", async (req, res) => {
 	res.render("login-screen");
@@ -78,15 +78,23 @@ app.get("/login-screen", async (req, res) => {
 	//   res.render("register", { error: "Passwords must match" });
 	//   return;
 	// }
+
+	// for now
+	// const salt = bcrypt.genSaltSync(SALT_ROUNDS);
+	// const passwordHash = bcrypt.hashSync(password, salt);
+
 	const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
 	await db.run(
 	  "INSERT INTO User (username, password) VALUES (?, ?)",
 	  username,
 	  passwordHash
 	);
-	res.redirect("/login-screen");
+	res.redirect("/user-screen");
   });  
-
+  app.get('/user-creation-screen', async (req, res) => {
+	// const db = await dbPromise;
+	res.render('user-creation-screen');
+})
   app.post("/user-creation-screen", async (req, res) => {
 	const db = await dbPromise;
 	const { username, password} = req.body;
@@ -96,6 +104,10 @@ app.get("/login-screen", async (req, res) => {
 	//   res.render("register", { error: "Passwords must match" });
 	//   return;
 	// }
+
+	// const salt = bcrypt.genSaltSync(SALT_ROUNDS);
+	// const passwordHash = bcrypt.hashSync(password, salt);
+
 	const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
 	await db.run(
 	  "INSERT INTO User (username, password) VALUES (?, ?)",
@@ -103,28 +115,25 @@ app.get("/login-screen", async (req, res) => {
 	  passwordHash
 	);
 
-	const checklogin = db.prepare(`SELECT * FROM users WHERE user='${username}' and password= '${password}';`);
-    let row = stmt.get();
-    if (row === undefined) {
-        req.app.set('username', username);
-        req.app.set('password', password);
-    } else {
-        req.app.set('username', username);
-        req.app.set('password', password);
-        res.redirect('/login-screen');
-    }
-	res.redirect("/login-screen");
+	// const checklogin = db.prepare(`SELECT * FROM users WHERE user='${username}' and password= '${password}';`);
+    // let row = checklogin.get();
+    // if (row === undefined) {
+    //     req.app.set('username', username);
+    //     req.app.set('password', password);
+    // } else {
+    //     req.app.set('username', username);
+    //     req.app.set('password', password);
+    //     res.redirect('/login-screen');
+    // }
+	 res.redirect("/index");
   });  
-
-// app.post('/message', async (req, res) => {
-// 	const db = await dbPromise
-// 	const messageText = req.body.messageText
-// 	await db.run('INSERT INTO Message (text) VALUES (?);', messageText)
-// 	res.redirect('/')
-// })
+  app.get('/index', async (req, res) => {
+	// const db = await dbPromise;
+	res.render('login-screen')
+})
 
 app.get('/user-screen', async (req, res) => {
-	const db = await dbPromise;
+	// const db = await dbPromise;
 	res.render('user-screen')
 })
 
@@ -135,8 +144,8 @@ app.get("*", (req, res) => {
 const setup = async () => {
 	const db = await dbPromise
 	await db.migrate()
-	app.listen(8000, () => {
-		console.log('listening at http://localhost:8000')
+	app.listen(5555, () => {
+		console.log('listening at http://localhost:5555')
 	})
 }
 setup()

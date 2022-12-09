@@ -90,17 +90,25 @@
             d="M182.857 438.857h292.571v-109.714c0-80.571-65.714-146.286-146.286-146.286s-146.286 65.714-146.286 146.286v109.714zM658.286 493.714v329.143c0 30.286-24.571 54.857-54.857 54.857h-548.571c-30.286 0-54.857-24.571-54.857-54.857v-329.143c0-30.286 24.571-54.857 54.857-54.857h18.286v-109.714c0-140.571 115.429-256 256-256s256 115.429 256 256v109.714h18.286c30.286 0 54.857 24.571 54.857 54.857z"
           ></path>
         </svg>
+        <form action = "/login-screen" method = "post">
+          <!-- <label for = "username-field">username</label> -->
         <input
           type="text"
-          placeholder="Username"
+          id = "username"
+          name = "username"
+          placeholder="username"
           class="login-screen-textinput input"
         />
+        <!-- <label for ="password-field">password</label> -->
         <input
           type="text"
-          placeholder="Password"
+          id = "password"
+          name = "password"
+          placeholder="password"
           class="login-screen-textinput1 input"
         />
-        <a href="user-screen.html" class="login-screen-navlink">
+      <!-- </form>
+        <form action = "/login-screen" method="post" class="login-screen-navlink"> -->
           <div class="component1-container component1-root-class-name">
             <button class="component1-button button">
               <span>
@@ -109,14 +117,14 @@
               </span>
             </button>
           </div>
-        </a>
-        <a href="user-creation-screen.html" class="login-screen-navlink1">
+        </form>
+        <form action = "/user-creation-screen" class="login-screen-navlink1">
           <div class="component4-container component4-root-class-name">
             <button class="component4-button button">
               <span>Create an account</span>
             </button>
           </div>
-        </a>
+        </form>
         <span class="login-screen-text">Or</span>
       </div>
     </div>

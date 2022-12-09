@@ -5,7 +5,7 @@
  "main": "server.cjs",
  "scripts": {
   "test": "node server.js --port=5000",
-  "start": "node server.js"
+  "start": "nodemon server.js"
  },
  "type": "module",
  "author": "group-21",
@@ -20,5 +20,8 @@
   "minimist": "^1.2.7",
   "sqlite": "^4.1.2",
   "sqlite3": "^5.1.2"
+ },
+ "devDependencies": {
+  "nodemon": "^2.0.20"
  }
 }
